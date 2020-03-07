@@ -5,9 +5,12 @@ import android.content.pm.PackageManager
 import android.content.pm.PackageManager.MATCH_ALL
 import android.content.pm.PackageManager.MATCH_DEFAULT_ONLY
 import android.content.pm.ResolveInfo
+import android.icu.lang.UCharacter
 import android.os.Bundle
+import android.widget.GridLayout.VERTICAL
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 var allApps = mutableListOf<AppEntry>()
@@ -18,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val drawerViewManager = LinearLayoutManager(this)
+        val drawerViewManager = StaggeredGridLayoutManager(2,VERTICAL)
 
         val pm: PackageManager = this.packageManager
 
